@@ -84,77 +84,77 @@ public class BitPlane{
 	bit6 = new int[(n*m)];
 	bit7 = new int[(n*m)];
 
-	// BIT 7
+	// image_7
 	for(int i=0;i<n*m;i++){
 
 	bit7[i] = pixels[i][0];
 
 	}
 
-	//BIT 6
+	//image_6
 	for(int i=0;i<n*m;i++){
 
 	bit6[i] = pixels[i][1];
 
 	}
 
-	//BIT 5
+	//image_5
 	for(int i=0;i<n*m;i++){
 
 	bit5[i] = pixels[i][2];
 
 	}
 
-	//BIT 4
+	//image_4
 	for(int i=0;i<n*m;i++){
 
 	bit4[i] = pixels[i][3];
 
 	}
 
-	//BIT 3
+	//image_3
 	for(int i=0;i<n*m;i++){
 
 	bit3[i] = pixels[i][4];
 
 	}
 
-	//BIT 2
+	//image_2
 	for(int i=0;i<n*m;i++){
 
 	bit2[i] = pixels[i][5];
 
 	}
 
-	//BIT 1
+	//image_1
 	for(int i=0;i<n*m;i++){
 
 	bit1[i] = pixels[i][6];
 
 	}
 
-	//BIT 0
+	//image_0
 	for(int i=0;i<n*m;i++){
 
 	bit0[i] = pixels[i][7];
 
 	}
 
-	getImageFromArray(bit7,n,m,"Bit 7");
+	getImageFromArray(bit7,n,m,"image_7");
 
-	getImageFromArray(bit6,n,m,"Bit 6");
+	getImageFromArray(bit6,n,m,"image_6");
 
-	getImageFromArray(bit5,n,m,"Bit 5");
+	getImageFromArray(bit5,n,m,"image_5");
 
-	getImageFromArray(bit4,n,m,"Bit 4");
+	getImageFromArray(bit4,n,m,"image_4");
 
-	getImageFromArray(bit3,n,m,"Bit 3");
+	getImageFromArray(bit3,n,m,"image_3");
 
-	getImageFromArray(bit2,n,m,"Bit 2");
+	getImageFromArray(bit2,n,m,"image_2");
 
-	getImageFromArray(bit1,n,m,"Bit 1");
+	getImageFromArray(bit1,n,m,"image_1");
 
-	getImageFromArray(bit0,n,m,"Bit 0");
+	getImageFromArray(bit0,n,m,"image_0");
 
 	}
 

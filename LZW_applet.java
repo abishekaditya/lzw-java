@@ -5,20 +5,26 @@ import java.applet.*;
 import java.awt.event.*;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.*;
+import java.lang.*;
 
-/* <applet code="LZW_applet" width=450 height=400>
+/* <applet code="LZW_applet.class" width=450 height=400>
 </applet>
 */
 
-public class LZW_applet extends Applet implements ActionListener {
+public class LZW_applet extends Applet implements ActionListener  {
+
+TextField uncom,com;
 
 public void init(){
 	Label uncom_label = new Label("Uncompressed File:", Label.LEFT);
 	Label com_label = new Label("Compressed File:", Label.LEFT);
 	Button compress = new Button("compress");
 	Button decompress = new Button("decompress");
-	TextField uncom = new TextField(20);
-	TextField com = new TextField(20);
+	uncom = new TextField(20);
+	uncom.setText("a.html");
+	com.setText("a.out");
+	com = new TextField(20);
 	uncom.setEditable(true);
 	com.setEditable(true);
 
@@ -31,13 +37,13 @@ public void init(){
 
 	compress.addActionListener(this);
 	decompress.addActionListener(this);
-	com.addActionListener(this);
-	uncom.addActionListener(this);
 }
 
-public void actionPerformed(ActionEvent ae){
+public void actionPerformed(ActionEvent ae)
+{
 	String str= ae.getActionCommand();
-
+	try{
+	
 	if (str.equals("compress")) {
 		FileInputStream in = new FileInputStream(uncom.getText());
         FileOutputStream out = new FileOutputStream(com.getText());
@@ -49,6 +55,10 @@ public void actionPerformed(ActionEvent ae){
 		FileOutputStream out = new FileOutputStream(uncom.getText());
 		LZW lzw = new LZW();
 		lzw.decompress(in, out);
+	}
+	}
+	catch (Exception e){
+		e.printStackTrace();
 	}
 	repaint();
 }
@@ -63,7 +73,6 @@ public void destroy(){
 }
 
 public void paint(Graphics g){
-
 }
 	
 }
