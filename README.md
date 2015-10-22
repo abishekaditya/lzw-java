@@ -1,4 +1,4 @@
-# LZW_Java: ITE103 Project
+# LZW_Java: ITE207 Project
 ######Made by Abishek Aditya & Pulkit Narwani
 
 ####Contents
