@@ -22,7 +22,7 @@
 	
 				|--> ByteArray
 
-###How to Use
+####How to Use
 1.Download LZW.jar.
 
 
