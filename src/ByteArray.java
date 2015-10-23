@@ -63,30 +63,5 @@ public ByteArray append(byte b1, byte... bytes) {
         return append(new ByteArray(b1, bytes));
 }
 
-@Override
-public boolean equals(Object obj) {
-        if (this == obj)
-                return true;
-        if (obj == null)
-                return false;
-        if (getClass() != obj.getClass())
-                return false;
-        ByteArray other = (ByteArray) obj;
-        if (!Arrays.equals(internal, other.internal))
-                return false;
-        return true;
-}
 
-@Override
-public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + Arrays.hashCode(internal);
-        return result;
-}
-
-@Override
-public String toString() {
-        return "ByteArray [internal=" + Arrays.toString(internal) + "]";
-}
 }
