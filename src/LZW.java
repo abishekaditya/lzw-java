@@ -11,15 +11,15 @@ import java.util.List;
 import java.util.Map;
 
 public class LZW {
-private int codedLen = 12;
-private Map<ByteArray, Integer> codedTable;
-private List<ByteArray> decodedTable;
+private int codedLen = 12; //can be changed, but will have to change the mask too
+private Map<ByteArray, Integer> codedTable; //hashmap of code:value pairs
+private List<ByteArray> decodedTable;//array/list of decoded values from hash map
 
 
 public void compress(InputStream in, OutputStream out) throws IOException {
 init();
 
-int code = 256;
+int code = 256;//initial size of compress table. each byte is mapped to itself
 
 InputStream bufferedIn = new BufferedInputStream(in);
 Output comp_out = new Output(new BufferedOutputStream(out),

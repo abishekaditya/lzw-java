@@ -26,28 +26,28 @@ private InputStream in;
 private int codedLen;
 private int mask;
 private long buf;        
-private int max_bit_codes;
-private int max_codes;
+private int buf_used_bits;
+private int buf_used_bytes;
 private int total_codes;
-private int bufferedCodes;
+private int used_codes;
 private boolean eof;
 
 public Input(InputStream in, int codedLen) {
 this.in = in;
 this.codedLen = codedLen;
 
-bufferedCodes = 0;
+used_codes = 0;
 buf = 0;
-max_bit_codes = (int) LCM(8, codedLen);
-max_codes = max_bit_codes / 8;
-total_codes = max_bit_codes / codedLen;
+buf_used_bits = (int) LCM(8, codedLen);
+buf_used_bytes = buf_used_bits / 8;
+total_codes = buf_used_bits / codedLen;
 mask = (1 << codedLen) - 1;
 }
 
 public int read() throws IOException {
-	if ((bufferedCodes <= 0) && (!eof)) {
+	if ((used_codes <= 0) && (!eof)) {
 			buf = 0;
-			for (int i = 0; i < max_codes; i++) {
+			for (int i = 0; i < buf_used_bytes; i++) {
 					int read = in.read();
 					if (-1 == read) {
 							// read = 0;
@@ -57,12 +57,12 @@ public int read() throws IOException {
 					read <<= i * 8;
 					buf |= read;
 			}
-			bufferedCodes = total_codes;
+			used_codes = total_codes;
 	}
-	if (bufferedCodes > 0) {
+	if (used_codes > 0) {
 			int code = (int) (buf & mask);
 			buf >>= codedLen;
-			bufferedCodes--;
+			used_codes--;
 			if (code < (1 << codedLen) - 1) {
 					return code;
 			} else {

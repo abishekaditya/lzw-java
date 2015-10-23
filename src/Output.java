@@ -21,33 +21,33 @@ public static long LCM(long a, long b) {
 }
 
 private OutputStream out;
-int codedLen;
-private int mask;
-private long buf;
-private int written;
-private int max_bit_codes;
-private int max_codes;
-private int total_codes;
+int codeWordLength;
+private int mask; // mask for clipping ASCII values from code
+private long buf; //internal buffer for getting output
+private int written; //number of codes in the output stream       
+private int buf_used_bits;//number of bits used in buffer for storing code        
+private int buf_used_bytes;       
+private int total_codes;// number of codes that can be stored
 		
-public Output(OutputStream out, int codedLen){
+public Output(OutputStream out, int codeWordLength){
 	this.out = out;
-	this.codedLen = codedLen;
+	this.codeWordLength = codeWordLength;
 
 	written = 0;
 	buf = 0;
-	max_bit_codes = (int) LCM(8, codedLen);
-	max_codes = max_bit_codes / 8;
-	total_codes = max_bit_codes / codedLen;
-	mask = (1 << codedLen) - 1;
+	buf_used_bits = (int) LCM(8, codeWordLength);
+	buf_used_bytes = buf_used_bits / 8;
+	total_codes = buf_used_bits / codeWordLength;
+	mask = (1 << codeWordLength) - 1;
 }
 
 public void write(int code) throws IOException {
 
-code = (code & mask) << ((written) * codedLen);
+code = (code & mask) << ((written) * codeWordLength);
 buf |= code;
 written++;
 	if (written >= total_codes) {
-			for (int i = 0; i < max_codes; i++) {
+			for (int i = 0; i < buf_used_bytes; i++) {
 					out.write((int) (buf & 255));
 					buf >>= 8;
 			}
