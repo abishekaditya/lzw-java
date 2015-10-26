@@ -33,15 +33,17 @@
 
 
 3a.Compress
-	<ul>Input: filename</ul>
-	<ul>Output: any easy to remember name</ul>
-	<ul>Press Compress button</ul>
+
+	-Input: filename
+	-Output: any easy to remember name
+	-Press Compress button
 	
 	
 3b.Decompress
-	<ul>Input: compressed filename</ul>
-	<ul>Output: any name with correct extension</ul>
-	<ul>Press Decompress button</ul>
+	
+	-Input: compressed filename
+	-Output: any name with correct extension
+	-Press Decompress button
 
 ####About LZW Compression
-[Lempel-Ziv-Welch Algorithm](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch) 
+[Lempel-Ziv-Welch Algorithm](https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch)
