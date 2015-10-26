@@ -2,17 +2,17 @@
 ######Made by Abishek Aditya & Pulkit Narwani
 
 ####Contents
-<ul><li>Executable JAR File</li>
-<li>Source Files</li>
-	<ol><li>Input.java
+1.Executable JAR File
+2.Source Files
+	-Input.java
 	
-	<li>Output.java
+	-Output.java
 	
-	<li>ByteArray.java
+	-ByteArray.java
 	
-	<li>LZW.java</ol>
+	-LZW.java
 	
-<li>Main.java (JavaFX Program to read and write files in GUI)</li></ul>
+3.Main.java (JavaFX Program to read and write files in GUI)
 
 
 ####Dependencies
